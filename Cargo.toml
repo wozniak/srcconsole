@@ -1,0 +1,31 @@
+[package]
+name = "srcconsole"
+version = "0.2.0"
+edition = "2018"
+authors = ["matthew <sirtomato999@gmail.com>"]
+license = "BSD-2-Clause"
+keywords = ["reverse-engineering", "gamedev"]
+description = "interact with the source engine console"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+winapi.version = "0.3.9"
+winapi.features = [
+    "tlhelp32",
+    "winnt",
+    "minwindef",
+    "processthreadsapi",
+    "psapi",
+    "errhandlingapi",
+    "memoryapi",
+    "winbase",
+    "synchapi",
+    "handleapi",
+    "minwinbase"
+]
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
